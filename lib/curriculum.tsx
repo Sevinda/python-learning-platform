@@ -21,7 +21,7 @@ export const CHAPTERS: Chapter[] = [
               Use <code>print()</code> to show output.
             </p>
             <pre className="rounded-lg border p-3 overflow-auto">
-              {`print("Hello, World!")`}
+              {`print("Hello, World!!!")`}
             </pre>
           </div>
         ),
@@ -57,6 +57,440 @@ print("Outside if")`}
   },
 
   {
+    slug: "variables-and-data-types",
+    title: "Variables and Data Types",
+    summary: "Store and work with different types of data in Python.",
+    sections: [
+      {
+        heading: "Variables",
+        content: (
+          <div className="space-y-2">
+            <p>
+              Variables store values. You don&apos;t need to declare types in
+              Python.
+            </p>
+            <pre className="rounded-lg border p-3 overflow-auto">
+              {`name = "Alice"
+age = 16
+height = 5.6
+is_student = True
+
+print(name, age, height, is_student)`}
+            </pre>
+          </div>
+        ),
+      },
+      {
+        heading: "Basic Data Types",
+        content: (
+          <div className="space-y-2">
+            <p>Python has several built-in data types.</p>
+            <pre className="rounded-lg border p-3 overflow-auto">
+              {`# Integers (whole numbers)
+age = 16
+score = -5
+
+# Floats (decimal numbers)
+price = 19.99
+temperature = -3.5
+
+# Strings (text)
+name = "Alice"
+message = 'Hello World'
+
+# Booleans (True or False)
+is_active = True
+is_valid = False
+
+# Check type
+print(type(age))    # <class 'int'>
+print(type(price))  # <class 'float'>`}
+            </pre>
+          </div>
+        ),
+      },
+      {
+        heading: "Type Conversion",
+        content: (
+          <div className="space-y-2">
+            <p>Convert between different data types when needed.</p>
+            <pre className="rounded-lg border p-3 overflow-auto">
+              {`# String to number
+age = int("16")
+price = float("19.99")
+
+# Number to string
+age_text = str(16)
+
+# Integer to float
+exact_value = float(10)  # 10.0
+
+print(int(19.99))   # 19 (truncates)
+print(float("3.14"))  # 3.14`}
+            </pre>
+          </div>
+        ),
+      },
+    ],
+  },
+
+  {
+    slug: "operators",
+    title: "Operators: Arithmetic, Comparison, Logical",
+    summary: "Perform calculations and make comparisons using operators.",
+    sections: [
+      {
+        heading: "Arithmetic Operators",
+        content: (
+          <div className="space-y-2">
+            <p>Perform mathematical operations.</p>
+            <pre className="rounded-lg border p-3 overflow-auto">
+              {`# Basic operations
+print(10 + 5)   # 15 (addition)
+print(10 - 5)   # 5 (subtraction)
+print(10 * 5)   # 50 (multiplication)
+print(10 / 5)   # 2.0 (division)
+
+# More operations
+print(10 // 3)  # 3 (floor division)
+print(10 % 3)   # 1 (modulus/remainder)
+print(2 ** 3)   # 8 (exponentiation)
+
+# Compound assignments
+x = 10
+x += 5  # x = x + 5
+print(x)  # 15`}
+            </pre>
+          </div>
+        ),
+      },
+      {
+        heading: "Comparison Operators",
+        content: (
+          <div className="space-y-2">
+            <p>Compare values and get True or False results.</p>
+            <pre className="rounded-lg border p-3 overflow-auto">
+              {`print(5 == 5)   # True (equal to)
+print(5 != 3)   # True (not equal to)
+print(5 > 3)    # True (greater than)
+print(5 < 3)    # False (less than)
+print(5 >= 5)   # True (greater than or equal)
+print(5 <= 4)   # False (less than or equal)
+
+# String comparison
+print("apple" == "apple")  # True
+print("apple" < "banana")  # True (alphabetical)`}
+            </pre>
+          </div>
+        ),
+      },
+      {
+        heading: "Logical Operators",
+        content: (
+          <div className="space-y-2">
+            <p>Combine multiple conditions using and, or, not.</p>
+            <pre className="rounded-lg border p-3 overflow-auto">
+              {`age = 16
+has_license = True
+
+# AND: both must be True
+print(age >= 16 and has_license)  # True
+
+# OR: at least one must be True
+print(age >= 18 or has_license)   # True
+
+# NOT: reverses the boolean
+print(not False)  # True
+print(not (age < 16))  # True`}
+            </pre>
+          </div>
+        ),
+      },
+    ],
+  },
+
+  {
+    slug: "conditionals-if-elif-else",
+    title: "Conditionals: If, Elif, Else",
+    summary: "Make decisions in your code based on conditions.",
+    sections: [
+      {
+        heading: "If Statements",
+        content: (
+          <div className="space-y-2">
+            <p>Execute code only when a condition is True.</p>
+            <pre className="rounded-lg border p-3 overflow-auto">
+              {`age = 16
+
+if age >= 18:
+    print("You are an adult")
+    print("You can vote")
+
+if age >= 16:
+    print("You can drive!")`}
+            </pre>
+          </div>
+        ),
+      },
+      {
+        heading: "If-Else Statements",
+        content: (
+          <div className="space-y-2">
+            <p>Execute different code based on a condition.</p>
+            <pre className="rounded-lg border p-3 overflow-auto">
+              {`score = 85
+
+if score >= 60:
+    print("You passed!")
+else:
+    print("You need to retake the test")
+
+# Ternary operator (one-line if-else)
+result = "Pass" if score >= 60 else "Fail"
+print(result)`}
+            </pre>
+          </div>
+        ),
+      },
+      {
+        heading: "If-Elif-Else Statements",
+        content: (
+          <div className="space-y-2">
+            <p>Check multiple conditions in sequence.</p>
+            <pre className="rounded-lg border p-3 overflow-auto">
+              {`score = 85
+
+if score >= 90:
+    grade = "A"
+elif score >= 80:
+    grade = "B"
+elif score >= 70:
+    grade = "C"
+elif score >= 60:
+    grade = "D"
+else:
+    grade = "F"
+
+print(f"Your grade is: {grade}")
+
+# Nested conditions
+age = 16
+has_license = True
+
+if age >= 16:
+    if has_license:
+        print("You can drive")
+    else:
+        print("Get your license first")
+else:
+    print("Too young to drive")`}
+            </pre>
+          </div>
+        ),
+      },
+    ],
+  },
+
+  {
+    slug: "strings-and-string-methods",
+    title: "Strings and String Methods",
+    summary: "Work with text data using Python's powerful string operations.",
+    sections: [
+      {
+        heading: "String Basics",
+        content: (
+          <div className="space-y-2">
+            <p>Create and manipulate strings in various ways.</p>
+            <pre className="rounded-lg border p-3 overflow-auto">
+              {`# Creating strings
+name = "Alice"
+message = 'Hello World'
+multiline = """This is a
+multi-line string"""
+
+# String concatenation
+greeting = "Hello, " + name + "!"
+print(greeting)  # Hello, Alice!
+
+# String repetition
+print("Ha" * 3)  # HaHaHa
+
+# Indexing and slicing
+text = "Python"
+print(text[0])     # P (first character)
+print(text[-1])    # n (last character)
+print(text[0:3])   # Pyt (slice)
+print(text[2:])    # thon (from index 2 to end)`}
+            </pre>
+          </div>
+        ),
+      },
+      {
+        heading: "String Formatting",
+        content: (
+          <div className="space-y-2">
+            <p>Format strings using f-strings and other methods.</p>
+            <pre className="rounded-lg border p-3 overflow-auto">
+              {`name = "Alice"
+age = 16
+score = 95.5
+
+# f-strings (recommended)
+print(f"My name is {name}")
+print(f"{name} is {age} years old")
+print(f"Score: {score:.1f}")  # 95.5 (1 decimal)
+
+# format() method
+print("My name is {}".format(name))
+print("{} scored {} points".format(name, score))
+
+# % formatting (old style)
+print("My name is %s" % name)`}
+            </pre>
+          </div>
+        ),
+      },
+      {
+        heading: "String Methods",
+        content: (
+          <div className="space-y-2">
+            <p>Use built-in methods to manipulate strings.</p>
+            <pre className="rounded-lg border p-3 overflow-auto">
+              {`text = "  Hello World  "
+
+# Case methods
+print(text.upper())      # "  HELLO WORLD  "
+print(text.lower())      # "  hello world  "
+print(text.title())      # "  Hello World  "
+
+# Whitespace removal
+print(text.strip())      # "Hello World"
+print(text.lstrip())     # "Hello World  "
+print(text.rstrip())     # "  Hello World"
+
+# Search and replace
+print(text.replace("World", "Python"))
+print(text.find("World"))  # 8 (index position)
+print("Hello" in text)     # True
+
+# Split and join
+words = "apple,banana,orange".split(",")
+print(words)  # ['apple', 'banana', 'orange']
+print("-".join(words))  # apple-banana-orange
+
+# Check string properties
+print("hello".isalpha())   # True
+print("123".isdigit())     # True
+print("hello123".isalnum())  # True`}
+            </pre>
+          </div>
+        ),
+      },
+    ],
+  },
+
+  {
+    slug: "functions",
+    title: "Functions: Reusable Code Blocks",
+    summary: "Create reusable code with functions and parameters.",
+    sections: [
+      {
+        heading: "Defining Functions",
+        content: (
+          <div className="space-y-2">
+            <p>Functions group code that performs a specific task.</p>
+            <pre className="rounded-lg border p-3 overflow-auto">
+              {`def greet():
+    print("Hello!")
+    print("Welcome to Python")
+
+greet()  # Call the function
+
+# Function with parameters
+def greet_person(name):
+    print(f"Hello, {name}!")
+
+greet_person("Alice")
+greet_person("Bob")`}
+            </pre>
+          </div>
+        ),
+      },
+      {
+        heading: "Return Values",
+        content: (
+          <div className="space-y-2">
+            <p>Functions can return values using the return statement.</p>
+            <pre className="rounded-lg border p-3 overflow-auto">
+              {`def add(a, b):
+    return a + b
+
+result = add(5, 3)
+print(result)  # 8
+
+def calculate_grade(score):
+    if score >= 90:
+        return "A"
+    elif score >= 80:
+        return "B"
+    elif score >= 70:
+        return "C"
+    else:
+        return "F"
+
+grade = calculate_grade(85)
+print(grade)  # B
+
+# Multiple return values
+def get_stats(numbers):
+    return min(numbers), max(numbers), sum(numbers)
+
+minimum, maximum, total = get_stats([1, 2, 3, 4, 5])
+print(f"Min: {minimum}, Max: {maximum}, Total: {total}")`}
+            </pre>
+          </div>
+        ),
+      },
+      {
+        heading: "Default Parameters and Keyword Arguments",
+        content: (
+          <div className="space-y-2">
+            <p>Use default values and keyword arguments for flexibility.</p>
+            <pre className="rounded-lg border p-3 overflow-auto">
+              {`# Default parameters
+def greet(name, greeting="Hello"):
+    print(f"{greeting}, {name}!")
+
+greet("Alice")              # Hello, Alice!
+greet("Bob", "Hi")          # Hi, Bob!
+
+# Keyword arguments
+def describe_pet(animal, name, age=1):
+    print(f"{name} is a {age}-year-old {animal}")
+
+describe_pet("dog", "Buddy", 3)
+describe_pet(name="Whiskers", animal="cat", age=2)
+describe_pet(animal="parrot", name="Polly")
+
+# *args and **kwargs
+def sum_all(*numbers):
+    return sum(numbers)
+
+print(sum_all(1, 2, 3, 4, 5))  # 15
+
+def print_info(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+print_info(name="Alice", age=16, grade="A")`}
+            </pre>
+          </div>
+        ),
+      },
+    ],
+  },
+
+  {
     slug: "loops-for",
     title: "For loops (with animation)",
     summary: "Understand iteration, range(), and what changes each loop.",
@@ -76,6 +510,100 @@ print("Outside if")`}
       {
         heading: "Interactive: watch it iterate",
         content: <div data-interactive="ForLoopVisualizer" />,
+      },
+    ],
+  },
+
+  {
+    slug: "loops-while",
+    title: "While Loops: Condition-Based Iteration",
+    summary: "Repeat code as long as a condition is True.",
+    sections: [
+      {
+        heading: "Basic While Loops",
+        content: (
+          <div className="space-y-2">
+            <p>While loops continue running as long as a condition is True.</p>
+            <pre className="rounded-lg border p-3 overflow-auto">
+              {`count = 0
+while count < 5:
+    print(count)
+    count += 1
+
+# Be careful with infinite loops!
+# while True:
+#     print("This runs forever!")
+
+# User input loop
+password = ""
+while password != "secret":
+    password = input("Enter password: ")
+print("Access granted!")`}
+            </pre>
+          </div>
+        ),
+      },
+      {
+        heading: "Break and Continue",
+        content: (
+          <div className="space-y-2">
+            <p>Control loop execution with break and continue statements.</p>
+            <pre className="rounded-lg border p-3 overflow-auto">
+              {`# Break: exit the loop
+count = 0
+while True:
+    print(count)
+    count += 1
+    if count >= 5:
+        break  # Exit loop
+
+# Continue: skip to next iteration
+count = 0
+while count < 10:
+    count += 1
+    if count % 2 == 0:
+        continue  # Skip even numbers
+    print(count)  # Only prints odd numbers
+
+# Works with for loops too
+for i in range(10):
+    if i == 5:
+        break  # Stop at 5
+    print(i)`}
+            </pre>
+          </div>
+        ),
+      },
+      {
+        heading: "While vs For Loops",
+        content: (
+          <div className="space-y-2">
+            <p>Choose the right loop for your situation.</p>
+            <pre className="rounded-lg border p-3 overflow-auto">
+              {`# Use FOR when you know iterations in advance
+for i in range(10):
+    print(i)
+
+for item in ["apple", "banana", "orange"]:
+    print(item)
+
+# Use WHILE when condition-based
+attempts = 0
+success = False
+while not success and attempts < 3:
+    if try_something():
+        success = True
+    attempts += 1
+
+# Infinite loop with break (common pattern)
+while True:
+    command = input("Enter command (q to quit): ")
+    if command == "q":
+        break
+    process_command(command)`}
+            </pre>
+          </div>
+        ),
       },
     ],
   },
