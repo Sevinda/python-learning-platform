@@ -1,9 +1,27 @@
 import type { Chapter } from "@/lib/curriculum";
 import ForLoopVisualizer from "@/components/interactives/for-loop-visualizer";
+import { CodePlayground } from "@/components/interactives/code-playground";
+import { IfElseFlowchart } from "@/components/interactives/if-else-flowchart";
+import { ForLoopRacetrack } from "@/components/interactives/for-loop-racetrack";
+import { ListAnimator } from "@/components/interactives/list-animator";
+import { WhileLoopVisualizer } from "@/components/interactives/while-loop-visualizer";
+import { StringSlicerTool } from "@/components/interactives/string-slicer-tool";
+import { DictionaryExplorer } from "@/components/interactives/dictionary-explorer";
+import { VariableBoxVisualizer } from "@/components/interactives/variable-box-visualizer";
+import { ComparisonScale } from "@/components/interactives/comparison-scale";
 import React from "react";
 
 const interactiveMap: Record<string, React.ReactNode> = {
   ForLoopVisualizer: <ForLoopVisualizer />,
+  CodePlayground: <CodePlayground />,
+  IfElseFlowchart: <IfElseFlowchart />,
+  ForLoopRacetrack: <ForLoopRacetrack />,
+  ListAnimator: <ListAnimator />,
+  WhileLoopVisualizer: <WhileLoopVisualizer />,
+  StringSlicerTool: <StringSlicerTool />,
+  DictionaryExplorer: <DictionaryExplorer />,
+  VariableBoxVisualizer: <VariableBoxVisualizer />,
+  ComparisonScale: <ComparisonScale />,
 };
 
 export default function ChapterRenderer({ chapter }: { chapter: Chapter }) {

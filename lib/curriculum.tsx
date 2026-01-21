@@ -16,13 +16,14 @@ export const CHAPTERS: Chapter[] = [
       {
         heading: "print()",
         content: (
-          <div className="space-y-2">
+          <div className="space-y-4">
             <p>
               Use <code>print()</code> to show output.
             </p>
             <pre className="rounded-lg border p-3 overflow-auto">
               {`print("Hello, World!!!")`}
             </pre>
+            <div data-interactive="CodePlayground" />
           </div>
         ),
       },
@@ -83,8 +84,9 @@ print(name, age, height, is_student)`}
       {
         heading: "Basic Data Types",
         content: (
-          <div className="space-y-2">
+          <div className="space-y-4">
             <p>Python has several built-in data types.</p>
+            <div data-interactive="VariableBoxVisualizer" />
             <pre className="rounded-lg border p-3 overflow-auto">
               {`# Integers (whole numbers)
 age = 16
@@ -167,8 +169,9 @@ print(x)  # 15`}
       {
         heading: "Comparison Operators",
         content: (
-          <div className="space-y-2">
+          <div className="space-y-4">
             <p>Compare values and get True or False results.</p>
+            <div data-interactive="ComparisonScale" />
             <pre className="rounded-lg border p-3 overflow-auto">
               {`print(5 == 5)   # True (equal to)
 print(5 != 3)   # True (not equal to)
@@ -255,8 +258,9 @@ print(result)`}
       {
         heading: "If-Elif-Else Statements",
         content: (
-          <div className="space-y-2">
+          <div className="space-y-4">
             <p>Check multiple conditions in sequence.</p>
+            <div data-interactive="IfElseFlowchart" />
             <pre className="rounded-lg border p-3 overflow-auto">
               {`score = 85
 
@@ -299,8 +303,9 @@ else:
       {
         heading: "String Basics",
         content: (
-          <div className="space-y-2">
+          <div className="space-y-4">
             <p>Create and manipulate strings in various ways.</p>
+            <div data-interactive="StringSlicerTool" />
             <pre className="rounded-lg border p-3 overflow-auto">
               {`# Creating strings
 name = "Alice"
@@ -509,7 +514,12 @@ print_info(name="Alice", age=16, grade="A")`}
       },
       {
         heading: "Interactive: watch it iterate",
-        content: <div data-interactive="ForLoopVisualizer" />,
+        content: (
+          <div className="space-y-4">
+            <div data-interactive="ForLoopVisualizer" />
+            <div data-interactive="ForLoopRacetrack" />
+          </div>
+        ),
       },
     ],
   },
@@ -522,8 +532,9 @@ print_info(name="Alice", age=16, grade="A")`}
       {
         heading: "Basic While Loops",
         content: (
-          <div className="space-y-2">
+          <div className="space-y-4">
             <p>While loops continue running as long as a condition is True.</p>
+            <div data-interactive="WhileLoopVisualizer" />
             <pre className="rounded-lg border p-3 overflow-auto">
               {`count = 0
 while count < 5:
@@ -616,11 +627,12 @@ while True:
       {
         heading: "What is a Dictionary?",
         content: (
-          <div className="space-y-2">
+          <div className="space-y-4">
             <p>
               Dictionaries store data as key-value pairs. Access values using
               keys instead of numbers.
             </p>
+            <div data-interactive="DictionaryExplorer" />
             <pre className="rounded-lg border p-3 overflow-auto">
               {`student = {
     "name": "Alice",
@@ -676,8 +688,9 @@ print(fruits[-1])  # orange (last item)`}
       {
         heading: "List Methods and Slicing",
         content: (
-          <div className="space-y-2">
+          <div className="space-y-4">
             <p>Modify lists and extract portions using methods and slicing.</p>
+            <div data-interactive="ListAnimator" />
             <pre className="rounded-lg border p-3 overflow-auto">
               {`fruits.append("grape")
 fruits.remove("banana")
