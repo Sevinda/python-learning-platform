@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Rubik_Storm, Nunito, Montserrat } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
+const rubikStorm = Rubik_Storm({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  weight: ["400"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const nunito = Nunito({ variable: "--font-nunito", subsets: ["latin"] });
+
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
 });
 
@@ -26,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${rubikStorm.variable} ${nunito.variable} ${montserrat.variable} antialiased`}
       >
         {children}
       </body>
