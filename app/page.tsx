@@ -1,5 +1,6 @@
 "use client";
-import { useCallback, useState } from "react";
+import { useCallback, useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 import { motion } from "framer-motion";
 import { toast } from "sonner";
@@ -10,16 +11,29 @@ import { Field, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { useGetUserByUsername } from "@/hooks/useUsers";
 
-const Home = () => {
+const LoginPage = () => {
   const [username, setUsername] = useState("");
+  const router = useRouter();
   const { mutate: getUserByUsername } = useGetUserByUsername();
+
+  useEffect(() => {
+    const savedUsername = sessionStorage.getItem("username");
+    if (savedUsername) {
+      toast.success(`Welcome back @${savedUsername}! 🎉`);
+      router.push("/home");
+    }
+  }, [router]);
 
   const handleSubmit = useCallback(() => {
     getUserByUsername(username, {
-      onSuccess: () => toast.success(`Hello @${username}, welcome back! 🎉`),
+      onSuccess: () => {
+        sessionStorage.setItem("username", username);
+        toast.success(`Hello @${username}, welcome back! 🎉`);
+        router.push("/home");
+      },
       onError: () => toast.error("Oops! wrong @username"),
     });
-  }, [getUserByUsername, username]);
+  }, [getUserByUsername, username, router]);
 
   return (
     <div className="h-screen w-screen flex items-center justify-center">
@@ -44,6 +58,7 @@ const Home = () => {
               className="w-full"
               onClick={handleSubmit}
               disabled={!username}
+              type="submit"
             >
               Submit
             </Button>
@@ -54,4 +69,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default LoginPage;
