@@ -14,7 +14,8 @@ import { useGetUserByUsername } from "@/hooks/useUsers";
 const LoginPage = () => {
   const [username, setUsername] = useState("");
   const router = useRouter();
-  const { mutate: getUserByUsername } = useGetUserByUsername();
+
+  const { mutate: getUserByUsername, isPending } = useGetUserByUsername();
 
   useEffect(() => {
     const savedUsername = sessionStorage.getItem("username");
@@ -57,10 +58,10 @@ const LoginPage = () => {
             <Button
               className="w-full"
               onClick={handleSubmit}
-              disabled={!username}
+              disabled={!username || isPending}
               type="submit"
             >
-              Submit
+              {isPending ? "Logging in..." : "Submit"}
             </Button>
           </motion.div>
         </div>
