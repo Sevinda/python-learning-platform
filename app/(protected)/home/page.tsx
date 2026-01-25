@@ -2,9 +2,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
 
 const ProtectedHomePage = () => {
   const [username, setUsername] = useState<string | null>(null);
@@ -46,6 +45,7 @@ const ProtectedHomePage = () => {
       <h1 className="text-5xl font-bold text-center mt-6">
         Lets have fun by learning 🐍
       </h1>
+      <Button onClick={handleLogout}>Logout</Button>
     </div>
   );
 };
