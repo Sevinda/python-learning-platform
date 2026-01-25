@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Rubik_Storm, Nunito, Montserrat } from "next/font/google";
+import Providers from "@/components/providers/providers";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
 const rubikStorm = Rubik_Storm({
   variable: "--font-geist-sans",
@@ -31,7 +33,10 @@ export default function RootLayout({
       <body
         className={`${rubikStorm.variable} ${nunito.variable} ${montserrat.variable} antialiased`}
       >
-        {children}
+        <Providers>
+          <Toaster />
+          {children}
+        </Providers>
       </body>
     </html>
   );
