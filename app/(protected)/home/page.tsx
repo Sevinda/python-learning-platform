@@ -1,51 +1,20 @@
-/* eslint-disable react-hooks/set-state-in-effect */
-"use client";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { toast } from "sonner";
-import { Button } from "@/components/ui/button";
+import CustomCard from "@/components/custom/CustomCard";
 
 const ProtectedHomePage = () => {
-  const [username, setUsername] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  const router = useRouter();
-
-  useEffect(() => {
-    const savedUsername = sessionStorage.getItem("username");
-    if (!savedUsername) {
-      toast.error("Please login first");
-      router.push("/");
-    } else {
-      setUsername(savedUsername);
-    }
-    setIsLoading(false);
-  }, [router]);
-
-  const handleLogout = () => {
-    sessionStorage.removeItem("username");
-    toast.success("Logged out successfully");
-    router.push("/");
-  };
-
-  if (isLoading) {
-    return (
-      <div className="h-screen w-screen flex items-center justify-center">
-        <div>Loading...</div>
-      </div>
-    );
-  }
-
-  if (!username) {
-    return null;
-  }
-
   return (
-    <div className="h-screen w-screen p-6">
-      <h1 className="text-5xl font-bold text-center mt-6">
-        Lets have fun by learning 🐍
-      </h1>
-      <Button onClick={handleLogout}>Logout</Button>
+    <div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <CustomCard
+          title="Study Guide 🚀"
+          description="Explore interactive lessons, coding exercises, and quizzes to master Python concepts effectively."
+          href="/home/study-guide"
+        />
+        <CustomCard
+          title="Practice Labs (Questions) 🔬"
+          description="Hands-on coding challenges and exercises to reinforce your Python skills."
+          href="#"
+        />
+      </div>
     </div>
   );
 };
