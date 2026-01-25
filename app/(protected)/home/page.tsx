@@ -12,7 +12,7 @@ const ProtectedHomePage = () => {
         <CustomCard
           title="Practice Labs (Questions) 🔬"
           description="Hands-on coding challenges and exercises to reinforce your Python skills."
-          href="#"
+          href="/home/practice-labs"
         />
       </div>
     </div>
