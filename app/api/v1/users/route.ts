@@ -17,3 +17,12 @@ export async function POST(req: NextRequest) {
     return handleRouteError(error);
   }
 }
+
+export async function GET() {
+  try {
+    const data = await controller.getAllUsers();
+    return NextResponse.json(ok(data), { status: 200 });
+  } catch (error) {
+    return handleRouteError(error);
+  }
+}

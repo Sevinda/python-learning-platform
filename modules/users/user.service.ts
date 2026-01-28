@@ -3,7 +3,7 @@ import { CreateUserInput } from "./user.dto";
 import { UserDb } from "./user.model";
 import { UserRepository } from "./user.repository";
 
-type UserResponse = {
+export type UserResponse = {
   id: string;
   username: string;
   createdAt: Date;
@@ -29,13 +29,18 @@ export class UserService {
     return toUserResponse(user);
   }
 
-  async getUserById(id: string): Promise<UserResponse | null> {
+  async getAllUsers(): Promise<UserResponse[]> {
+    const users = await this.repo.getAllUsers();
+    return users ? users.map((user) => toUserResponse(user)) : [];
+  }
+
+  async getUserById(id: string): Promise<UserResponse> {
     const user = await this.repo.getUserById(id);
     if (!user) throw new NotFoundError("User not found");
     return toUserResponse(user);
   }
 
-  async getUserByUsername(username: string): Promise<UserResponse | null> {
+  async getUserByUsername(username: string): Promise<UserResponse> {
     const user = await this.repo.getUserByUsername(username);
     if (!user) throw new NotFoundError("User not found");
     return toUserResponse(user);

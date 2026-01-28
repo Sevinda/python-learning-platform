@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import z, { ZodError } from "zod";
+import { ZodError } from "zod";
 
 import { AppError, ValidationError } from "./errors";
 import { fail } from "./response";
@@ -17,7 +17,7 @@ export function handleRouteError(err: unknown) {
 
   // Zod errors
   if (err instanceof ZodError) {
-    const ve = new ValidationError("Invalid request", z.treeifyError(err));
+    const ve = new ValidationError("Invalid request", err.issues);
     return NextResponse.json(fail(ve.code, ve.message, ve.details), {
       status: ve.status,
     });

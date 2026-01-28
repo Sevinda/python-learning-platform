@@ -10,6 +10,11 @@ export class UserController {
     return this.service.createUser(reqBody);
   }
 
+  async getAllUsers() {
+    await connectMongo();
+    return this.service.getAllUsers();
+  }
+
   async getUserById(userId: string) {
     await connectMongo();
     return this.service.getUserById(userId);

@@ -7,6 +7,10 @@ export class UserRepository {
     return user.toObject();
   }
 
+  async getAllUsers(): Promise<UserDb[] | null> {
+    return User.find().lean().exec();
+  }
+
   async getUserById(id: string): Promise<UserDb | null> {
     return User.findById(id).lean().exec();
   }
