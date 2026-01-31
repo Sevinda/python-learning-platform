@@ -18,8 +18,16 @@ export async function POST(req: NextRequest) {
   }
 }
 
-export async function GET() {
+export async function GET(req: NextRequest) {
   try {
+    const { searchParams } = new URL(req.url);
+    const username = searchParams.get("username");
+
+    if (username) {
+      const data = await controller.getUserByUsername(username);
+      return NextResponse.json(ok(data), { status: 200 });
+    }
+
     const data = await controller.getAllUsers();
     return NextResponse.json(ok(data), { status: 200 });
   } catch (error) {
