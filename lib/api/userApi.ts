@@ -31,8 +31,8 @@ export const getUserById = async (id: string): Promise<UserResponse> => {
 export const getUserByUsername = async (
   username: string,
 ): Promise<UserResponse> => {
-  const response = await axios.post<UserResponse>("/api/v1/users/by-username", {
-    username,
+  const response = await axios.get<UserResponse>("/api/v1/users", {
+    params: { username },
   });
   return response.data;
 };
